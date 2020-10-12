@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0832534CB3000BEA7E0 /* AppDelegate.m */; };
 		52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */; };
-		52FEB08A2534CB3000BEA7E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0892534CB3000BEA7E0 /* ViewController.m */; };
-		52FEB08D2534CB3000BEA7E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FEB08B2534CB3000BEA7E0 /* Main.storyboard */; };
+		52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0892534CB3000BEA7E0 /* MainViewController.m */; };
 		52FEB08F2534CB3200BEA7E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FEB08E2534CB3200BEA7E0 /* Assets.xcassets */; };
 		52FEB0922534CB3200BEA7E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FEB0902534CB3200BEA7E0 /* LaunchScreen.storyboard */; };
 		52FEB0952534CB3200BEA7E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0942534CB3200BEA7E0 /* main.m */; };
+		52FEB0A12534DCCE00BEA7E0 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0A02534DCCE00BEA7E0 /* Country.m */; };
+		52FEB0A42534DCFF00BEA7E0 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0A32534DCFF00BEA7E0 /* City.m */; };
+		52FEB0A72534DDA700BEA7E0 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0A62534DDA700BEA7E0 /* Airport.m */; };
+		52FEB0AB2534E2C000BEA7E0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0AA2534E2C000BEA7E0 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +25,20 @@
 		52FEB0832534CB3000BEA7E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		52FEB0852534CB3000BEA7E0 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		52FEB0882534CB3000BEA7E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		52FEB0892534CB3000BEA7E0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		52FEB08C2534CB3000BEA7E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52FEB0882534CB3000BEA7E0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		52FEB0892534CB3000BEA7E0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		52FEB08E2534CB3200BEA7E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52FEB0912534CB3200BEA7E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52FEB0932534CB3200BEA7E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52FEB0942534CB3200BEA7E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52FEB09F2534DCCE00BEA7E0 /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		52FEB0A02534DCCE00BEA7E0 /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		52FEB0A22534DCFF00BEA7E0 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		52FEB0A32534DCFF00BEA7E0 /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		52FEB0A52534DDA700BEA7E0 /* Airport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		52FEB0A62534DDA700BEA7E0 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		52FEB0A92534E2C000BEA7E0 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		52FEB0AA2534E2C000BEA7E0 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +71,42 @@
 		52FEB0812534CB3000BEA7E0 /* AviaTickets */ = {
 			isa = PBXGroup;
 			children = (
+				52FEB0A82534E2AE00BEA7E0 /* Services */,
+				52FEB09B2534DC8900BEA7E0 /* Models */,
 				52FEB0822534CB3000BEA7E0 /* AppDelegate.h */,
 				52FEB0832534CB3000BEA7E0 /* AppDelegate.m */,
 				52FEB0852534CB3000BEA7E0 /* SceneDelegate.h */,
 				52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */,
-				52FEB0882534CB3000BEA7E0 /* ViewController.h */,
-				52FEB0892534CB3000BEA7E0 /* ViewController.m */,
-				52FEB08B2534CB3000BEA7E0 /* Main.storyboard */,
+				52FEB0882534CB3000BEA7E0 /* MainViewController.h */,
+				52FEB0892534CB3000BEA7E0 /* MainViewController.m */,
 				52FEB08E2534CB3200BEA7E0 /* Assets.xcassets */,
 				52FEB0902534CB3200BEA7E0 /* LaunchScreen.storyboard */,
 				52FEB0932534CB3200BEA7E0 /* Info.plist */,
 				52FEB0942534CB3200BEA7E0 /* main.m */,
 			);
 			path = AviaTickets;
+			sourceTree = "<group>";
+		};
+		52FEB09B2534DC8900BEA7E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52FEB09F2534DCCE00BEA7E0 /* Country.h */,
+				52FEB0A02534DCCE00BEA7E0 /* Country.m */,
+				52FEB0A22534DCFF00BEA7E0 /* City.h */,
+				52FEB0A32534DCFF00BEA7E0 /* City.m */,
+				52FEB0A52534DDA700BEA7E0 /* Airport.h */,
+				52FEB0A62534DDA700BEA7E0 /* Airport.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52FEB0A82534E2AE00BEA7E0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				52FEB0A92534E2C000BEA7E0 /* DataManager.h */,
+				52FEB0AA2534E2C000BEA7E0 /* DataManager.m */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +140,7 @@
 				TargetAttributes = {
 					52FEB07E2534CB3000BEA7E0 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -135,7 +169,6 @@
 			files = (
 				52FEB0922534CB3200BEA7E0 /* LaunchScreen.storyboard in Resources */,
 				52FEB08F2534CB3200BEA7E0 /* Assets.xcassets in Resources */,
-				52FEB08D2534CB3000BEA7E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,24 +179,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52FEB08A2534CB3000BEA7E0 /* ViewController.m in Sources */,
+				52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */,
 				52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */,
+				52FEB0A72534DDA700BEA7E0 /* Airport.m in Sources */,
+				52FEB0A42534DCFF00BEA7E0 /* City.m in Sources */,
 				52FEB0952534CB3200BEA7E0 /* main.m in Sources */,
+				52FEB0AB2534E2C000BEA7E0 /* DataManager.m in Sources */,
 				52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */,
+				52FEB0A12534DCCE00BEA7E0 /* Country.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		52FEB08B2534CB3000BEA7E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52FEB08C2534CB3000BEA7E0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		52FEB0902534CB3200BEA7E0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9AML55U6D;
 				INFOPLIST_FILE = AviaTickets/Info.plist;
@@ -298,7 +328,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.vladilslavlikhachev.AviaTickets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "AviaTickets/Models/AviaTickets-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9AML55U6D;
 				INFOPLIST_FILE = AviaTickets/Info.plist;
@@ -315,7 +349,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.vladilslavlikhachev.AviaTickets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "AviaTickets/Models/AviaTickets-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

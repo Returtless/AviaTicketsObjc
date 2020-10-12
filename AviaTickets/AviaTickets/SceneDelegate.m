@@ -21,15 +21,17 @@
     UIWindowScene *windowScene = (UIWindowScene *) scene;
     UIWindow *window = [[UIWindow alloc] initWithFrame:windowScene.coordinateSpace.bounds];
     window.windowScene = windowScene;
-    
-    
-    MainViewController *firstViewController = [[MainViewController alloc] init];
-    //firstViewController.view.backgroundColor = [UIColor redColor];
-    window.rootViewController = firstViewController;
-    
+    _navigationController = [[UINavigationController alloc] init];
+    [window addSubview:[self.navigationController view]];
+   if(self.mainViewController == nil)
+    {
+        MainViewController *firstView = [[MainViewController alloc] init];
+        self.mainViewController = firstView;
+    }
+    [self.navigationController pushViewController:self.mainViewController animated:YES];
+
+    window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
-    
-    
     self.window = window;
 }
 

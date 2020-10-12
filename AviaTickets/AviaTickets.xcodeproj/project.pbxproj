@@ -17,6 +17,7 @@
 		52FEB0A42534DCFF00BEA7E0 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0A32534DCFF00BEA7E0 /* City.m */; };
 		52FEB0A72534DDA700BEA7E0 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0A62534DDA700BEA7E0 /* Airport.m */; };
 		52FEB0AB2534E2C000BEA7E0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0AA2534E2C000BEA7E0 /* DataManager.m */; };
+		52FEB0AF2534E7C100BEA7E0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0AE2534E7C100BEA7E0 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		52FEB0A62534DDA700BEA7E0 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		52FEB0A92534E2C000BEA7E0 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		52FEB0AA2534E2C000BEA7E0 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		52FEB0AD2534E7C100BEA7E0 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		52FEB0AE2534E7C100BEA7E0 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +80,7 @@
 				52FEB0832534CB3000BEA7E0 /* AppDelegate.m */,
 				52FEB0852534CB3000BEA7E0 /* SceneDelegate.h */,
 				52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */,
-				52FEB0882534CB3000BEA7E0 /* MainViewController.h */,
-				52FEB0892534CB3000BEA7E0 /* MainViewController.m */,
+				52FEB0AC2534E77C00BEA7E0 /* ViewControllers */,
 				52FEB08E2534CB3200BEA7E0 /* Assets.xcassets */,
 				52FEB0902534CB3200BEA7E0 /* LaunchScreen.storyboard */,
 				52FEB0932534CB3200BEA7E0 /* Info.plist */,
@@ -107,6 +109,17 @@
 				52FEB0AA2534E2C000BEA7E0 /* DataManager.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		52FEB0AC2534E77C00BEA7E0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				52FEB0882534CB3000BEA7E0 /* MainViewController.h */,
+				52FEB0892534CB3000BEA7E0 /* MainViewController.m */,
+				52FEB0AD2534E7C100BEA7E0 /* SecondViewController.h */,
+				52FEB0AE2534E7C100BEA7E0 /* SecondViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FEB0AF2534E7C100BEA7E0 /* SecondViewController.m in Sources */,
 				52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */,
 				52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */,
 				52FEB0A72534DDA700BEA7E0 /* Airport.m in Sources */,

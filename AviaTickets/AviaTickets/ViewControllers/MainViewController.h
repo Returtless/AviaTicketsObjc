@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SecondViewController.h"
+#import "PlaceViewController.h"
 
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) SecondViewController *secondViewController;
+@property (strong, nonatomic) PlaceViewController *placeViewController;
 
 @end
 

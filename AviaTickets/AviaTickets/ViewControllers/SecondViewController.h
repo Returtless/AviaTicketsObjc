@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SecondViewController.h
 //  AviaTickets
 //
 //  Created by Владислав Лихачев on 12.10.2020.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface SecondViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

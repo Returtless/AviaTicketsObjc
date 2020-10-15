@@ -7,6 +7,7 @@
 //
 #import "PlaceViewController.h"
 #import "DataManager.h"
+#import "CityTableViewCell.h"
 #define ReuseIdentifier @"CellIdentifier"
 
 @interface PlaceViewController ()
@@ -56,6 +57,7 @@
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
             _currentArray = [[DataManager sharedInstance] cities];
+            
             break;
         case 1:
             _currentArray = [[DataManager sharedInstance] airports];
@@ -75,23 +77,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    CityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+      if (!cell) {
+          cell = [[CityTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ReuseIdentifier];
+      }
     if (_segmentedControl.selectedSegmentIndex == 0) {
         City *city = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = city.name;
-        cell.detailTextLabel.text = city.code;
+        
+        cell.cityLabel.text = city.name;
+        cell.abbrLabel.text = city.code;
+        cell.countryLabel.text = @"Россия";
     }
     else if (_segmentedControl.selectedSegmentIndex == 1) {
         Airport *airport = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = airport.name;
-        cell.detailTextLabel.text = airport.code;
+        cell.cityLabel.text = airport.name;
+        cell.abbrLabel.text = airport.code;
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
 }
 
 #pragma mark - UITableViewDelegate

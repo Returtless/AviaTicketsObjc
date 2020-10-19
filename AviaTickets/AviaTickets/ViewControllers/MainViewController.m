@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "DataManager.h"
 #import "SecondViewController.h"
+#import "NewsAPIManager.h"
 
 @implementation MainViewController
 
@@ -36,7 +37,7 @@
 -(void)createStartButton{
     CGRect frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 100.0, [UIScreen mainScreen].bounds.size.height/2+70, 200.0, 200.0);
     UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
-    [button setTitle:@"Вперед за покупкой билетов!" forState:UIControlStateNormal];
+    [button setTitle:@"Вперед читать новости!" forState:UIControlStateNormal];
     button.titleLabel.numberOfLines = 3;
     button.titleLabel.font = [UIFont systemFontOfSize:26.0 weight:UIFontWeightBold];
     button.backgroundColor = [UIColor blueColor];
@@ -60,16 +61,15 @@
 // Метод, который будет вызван при нажатии на кнопку
 - (void)changeColorButtonDidTap:(UIButton *)sender
 {
-    
-    if(self.secondViewController == nil){
-        SecondViewController *secondView = [[SecondViewController alloc] init];
-        self.secondViewController = secondView;
-    }
-    
-    
-    //tell the navigation controller to push a new view into the stack
-    [self.navigationController pushViewController:self.secondViewController animated:YES];
-    
+    [[NewsAPIManager sharedInstance] getNews:^(NSArray *array) {
+        
+        if(self.secondViewController == nil){
+            SecondViewController *secondView = [[SecondViewController alloc] init];
+            secondView.news = array;
+            self.secondViewController = secondView;
+        }
+        [self.navigationController pushViewController:self.secondViewController animated:YES];
+     }];
 }
 
 - (void)viewWillAppear:(BOOL)animated

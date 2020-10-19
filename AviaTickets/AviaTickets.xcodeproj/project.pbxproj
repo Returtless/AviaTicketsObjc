@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52062DB0253CF0CE004EB865 /* NewsAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52062DAF253CF0CD004EB865 /* NewsAPIManager.m */; };
+		52062DB5253CF40D004EB865 /* NewsArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 52062DB4253CF40D004EB865 /* NewsArray.m */; };
 		52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0832534CB3000BEA7E0 /* AppDelegate.m */; };
 		52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */; };
 		52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0892534CB3000BEA7E0 /* MainViewController.m */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52062DAE253CF0CD004EB865 /* NewsAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsAPIManager.h; sourceTree = "<group>"; };
+		52062DAF253CF0CD004EB865 /* NewsAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsAPIManager.m; sourceTree = "<group>"; };
+		52062DB3253CF40D004EB865 /* NewsArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsArray.h; sourceTree = "<group>"; };
+		52062DB4253CF40D004EB865 /* NewsArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsArray.m; sourceTree = "<group>"; };
 		52FEB07F2534CB3000BEA7E0 /* AviaTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FEB0822534CB3000BEA7E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52FEB0832534CB3000BEA7E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52062DB2253CF3FC004EB865 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				52062DB3253CF40D004EB865 /* NewsArray.h */,
+				52062DB4253CF40D004EB865 /* NewsArray.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		52FEB0762534CB3000BEA7E0 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +89,7 @@
 		52FEB0812534CB3000BEA7E0 /* AviaTickets */ = {
 			isa = PBXGroup;
 			children = (
+				52062DB2253CF3FC004EB865 /* News */,
 				52FEB0A82534E2AE00BEA7E0 /* Services */,
 				52FEB09B2534DC8900BEA7E0 /* Models */,
 				52FEB0822534CB3000BEA7E0 /* AppDelegate.h */,
@@ -107,6 +123,8 @@
 			children = (
 				52FEB0A92534E2C000BEA7E0 /* DataManager.h */,
 				52FEB0AA2534E2C000BEA7E0 /* DataManager.m */,
+				52062DAE253CF0CD004EB865 /* NewsAPIManager.h */,
+				52062DAF253CF0CD004EB865 /* NewsAPIManager.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,6 +216,8 @@
 				52FEB0A72534DDA700BEA7E0 /* Airport.m in Sources */,
 				52FEB0A42534DCFF00BEA7E0 /* City.m in Sources */,
 				52FEB0952534CB3200BEA7E0 /* main.m in Sources */,
+				52062DB0253CF0CE004EB865 /* NewsAPIManager.m in Sources */,
+				52062DB5253CF40D004EB865 /* NewsArray.m in Sources */,
 				52FEB0AB2534E2C000BEA7E0 /* DataManager.m in Sources */,
 				52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */,
 				52FEB0A12534DCCE00BEA7E0 /* Country.m in Sources */,

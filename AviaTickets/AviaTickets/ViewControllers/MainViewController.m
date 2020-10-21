@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "DataManager.h"
 #import "PlaceViewController.h"
+#import "MapViewController.h"
 
 @implementation MainViewController
 
@@ -61,14 +62,13 @@
 - (void)changeColorButtonDidTap:(UIButton *)sender
 {
     
-    if(self.placeViewController == nil){
-        PlaceViewController *placeView = [[PlaceViewController alloc] init];
-        self.placeViewController = placeView;
-    }
+    //    if(self.placeViewController == nil){
+    //        PlaceViewController *placeView = [[PlaceViewController alloc] init];
+    //        self.placeViewController = placeView;
+    //    }
     
-    
-    //tell the navigation controller to push a new view into the stack
-    [self.navigationController pushViewController:self.placeViewController animated:YES];
+    MapViewController *mapViewController = [[MapViewController alloc] init];
+    [self.navigationController pushViewController:mapViewController animated:YES];
     
 }
 

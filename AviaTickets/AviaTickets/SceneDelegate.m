@@ -38,7 +38,7 @@
 //    }
 //    [self.navigationController pushViewController:self.mainViewController animated:YES];
 
-   // window.backgroundColor = [UIColor whiteColor];
+    window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
     self.window = window;
     self.window.rootViewController = tabBarController;

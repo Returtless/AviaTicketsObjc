@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526FCE302545B26100373912 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526FCE2F2545B26100373912 /* TabBarController.m */; };
 		52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0832534CB3000BEA7E0 /* AppDelegate.m */; };
 		52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */; };
 		52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0892534CB3000BEA7E0 /* MainViewController.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		526FCE2E2545B26000373912 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		526FCE2F2545B26100373912 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		52FEB07F2534CB3000BEA7E0 /* AviaTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FEB0822534CB3000BEA7E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52FEB0832534CB3000BEA7E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				52FEB0892534CB3000BEA7E0 /* MainViewController.m */,
 				52FEB0AD2534E7C100BEA7E0 /* SecondViewController.h */,
 				52FEB0AE2534E7C100BEA7E0 /* SecondViewController.m */,
+				526FCE2E2545B26000373912 /* TabBarController.h */,
+				526FCE2F2545B26100373912 /* TabBarController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				52FEB0A42534DCFF00BEA7E0 /* City.m in Sources */,
 				52FEB0952534CB3200BEA7E0 /* main.m in Sources */,
 				52FEB0AB2534E2C000BEA7E0 /* DataManager.m in Sources */,
+				526FCE302545B26100373912 /* TabBarController.m in Sources */,
 				52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */,
 				52FEB0A12534DCCE00BEA7E0 /* Country.m in Sources */,
 			);

@@ -19,6 +19,8 @@
     [self createLabel];
     [self createStartButton];
     [self createAirplaneImageView];
+    [self createAddButton];
+    _images = [NSMutableArray array];
 }
 
 
@@ -34,10 +36,10 @@
 }
 
 -(void)createStartButton{
-    CGRect frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 100.0, [UIScreen mainScreen].bounds.size.height/2+70, 200.0, 200.0);
+    CGRect frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 100.0, [UIScreen mainScreen].bounds.size.height/2+170, 200, 200.0);
     UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
-    [button setTitle:@"Вперед за покупкой билетов!" forState:UIControlStateNormal];
-    button.titleLabel.numberOfLines = 3;
+    [button setTitle:@"Перейти к просмотру фото из массива!" forState:UIControlStateNormal];
+    button.titleLabel.numberOfLines = 4;
     button.titleLabel.font = [UIFont systemFontOfSize:26.0 weight:UIFontWeightBold];
     button.backgroundColor = [UIColor blueColor];
     button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -45,7 +47,23 @@
     button.frame = frame;
     button.layer.cornerRadius = button.bounds.size.width/2;
     button.clipsToBounds = true;
-    [button addTarget:self action:@selector(changeColorButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(toNextControllerButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+-(void)createAddButton{
+    CGRect frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 50.0, [UIScreen mainScreen].bounds.size.height/2+70, 100.0, 100.0);
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
+    [button setTitle:@"Добавить фото из галереи в массив!" forState:UIControlStateNormal];
+    button.titleLabel.numberOfLines = 4;
+    button.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
+    button.backgroundColor = [UIColor blueColor];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    button.tintColor = [UIColor whiteColor];
+    button.frame = frame;
+    button.layer.cornerRadius = button.bounds.size.width/2;
+    button.clipsToBounds = true;
+    [button addTarget:self action:@selector(addImageToArray:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
@@ -57,19 +75,41 @@
     [self.view addSubview:imageView];
 }
 
-// Метод, который будет вызван при нажатии на кнопку
-- (void)changeColorButtonDidTap:(UIButton *)sender
+
+- (void)toNextControllerButtonDidTap:(UIButton *)sender
 {
-    
     if(self.secondViewController == nil){
         SecondViewController *secondView = [[SecondViewController alloc] init];
+        secondView.images = _images;
         self.secondViewController = secondView;
+        
     }
-    
-    
-    //tell the navigation controller to push a new view into the stack
     [self.navigationController pushViewController:self.secondViewController animated:YES];
-    
+}
+
+-(void)addImageToArray:(UIButton *)sender{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+   UIImage *pickedImage = info[UIImagePickerControllerOriginalImage];
+
+    if (pickedImage) {
+        [_images addObject:pickedImage];
+    }
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

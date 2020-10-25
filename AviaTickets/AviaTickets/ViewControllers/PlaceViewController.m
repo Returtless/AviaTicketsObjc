@@ -86,12 +86,13 @@
         
         cell.cityLabel.text = city.name;
         cell.abbrLabel.text = city.code;
-        cell.countryLabel.text = @"Россия";
+        cell.countryLabel.text = city.countryCode;
     }
     else if (_segmentedControl.selectedSegmentIndex == 1) {
         Airport *airport = [_currentArray objectAtIndex:indexPath.row];
         cell.cityLabel.text = airport.name;
         cell.abbrLabel.text = airport.code;
+        cell.countryLabel.text = airport.countryCode;
     }
     
     return cell;

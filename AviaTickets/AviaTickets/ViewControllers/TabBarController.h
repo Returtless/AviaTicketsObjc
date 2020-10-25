@@ -1,13 +1,17 @@
 //
-//  ImageCollectionViewCell.m
+//  TabBarController.h
 //  AviaTickets
 //
 //  Created by Владислав Лихачев on 25.10.2020.
 //  Copyright © 2020 Vladislav Likhachev. All rights reserved.
 //
 
-#import "ImageCollectionViewCell.h"
+#import <UIKit/UIKit.h>
 
-@implementation ImageCollectionViewCell
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TabBarController : UITabBarController
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (strong, nonatomic) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *images;
 @end
+
 
 NS_ASSUME_NONNULL_END

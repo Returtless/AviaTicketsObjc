@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 
+
 @interface SecondViewController ()
 
 @end
@@ -16,14 +17,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     CGRect labelFrame = CGRectMake(20.0, [UIScreen mainScreen].bounds.size.height / 2 - 100, [UIScreen mainScreen].bounds.size.width-20.0, 300);
-       UILabel *label = [[UILabel alloc] initWithFrame: labelFrame];
-       label.font = [UIFont systemFontOfSize:36.0 weight:UIFontWeightBold];
-       label.textColor = [UIColor orangeColor];
-       label.textAlignment = NSTextAlignmentCenter;
-       label.text = @"Скоро тут будут билеты!";
-       label.numberOfLines = 2;
-       [self.view addSubview: label];
+
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 1;
+    layout.minimumInteritemSpacing = 1;
+    layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 - 1, [UIScreen mainScreen].bounds.size.width / 2 - 1);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.dataSource = self;
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ReuseIdentifier"];
+    
+    [self.view addSubview:_collectionView];
+    
+
 }
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _images.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"ReuseIdentifier" forIndexPath:indexPath];
+   cell.backgroundView = [[UIImageView alloc] initWithImage:_images[indexPath.row]];
+    return cell;
+}
+
+
 
 @end

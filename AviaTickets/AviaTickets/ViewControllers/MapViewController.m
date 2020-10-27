@@ -121,7 +121,7 @@
                     }];
                 } else {
                     favoriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [[CoreDataHelper sharedInstance] addToFavorite:(Ticket *)firstFoundObject];
+                        [[CoreDataHelper sharedInstance] addToFavoriteFromMap:(Ticket *)firstFoundObject];
                     }];
                 }
                 

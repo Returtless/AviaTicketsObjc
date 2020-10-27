@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AviaTickets/Models/FavoriteTicket+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:AviaTickets/Models/FavoriteTicket+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
       location = "group:AviaTickets.xcodeproj">
    </FileRef>
    <FileRef

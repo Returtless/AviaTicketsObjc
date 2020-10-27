@@ -73,6 +73,22 @@
     favorite.from = ticket.from;
     favorite.to = ticket.to;
     favorite.created = [NSDate date];
+    favorite.fromMap = NO;
+    [self save];
+}
+
+- (void)addToFavoriteFromMap:(Ticket *)ticket {
+    FavoriteTicket *favorite = [NSEntityDescription insertNewObjectForEntityForName:@"FavoriteTicket" inManagedObjectContext:_managedObjectContext];
+    favorite.price = ticket.price.intValue;
+    favorite.airline = ticket.airline;
+    favorite.departure = ticket.departure;
+    favorite.expires = ticket.expires;
+    favorite.flightNumber = ticket.flightNumber.intValue;
+    favorite.returnDate = ticket.returnDate;
+    favorite.from = ticket.from;
+    favorite.to = ticket.to;
+    favorite.created = [NSDate date];
+    favorite.fromMap = YES;
     [self save];
 }
 
@@ -86,6 +102,14 @@
 
 - (NSArray *)favorites {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FavoriteTicket"];
+    request.predicate = [NSPredicate predicateWithFormat:@"fromMap == NO"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
+    return [_managedObjectContext executeFetchRequest:request error:nil];
+}
+
+- (NSArray *)getFavoritesFromMap {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FavoriteTicket"];
+    request.predicate = [NSPredicate predicateWithFormat:@"fromMap == YES"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
     return [_managedObjectContext executeFetchRequest:request error:nil];
 }

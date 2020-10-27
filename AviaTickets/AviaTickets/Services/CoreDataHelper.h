@@ -21,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isFavorite:(Ticket *)ticket;
 - (NSArray *)favorites;
 - (void)addToFavorite:(Ticket *)ticket;
+- (void)addToFavoriteFromMap:(Ticket *)ticket;
 - (void)removeFromFavorite:(Ticket *)ticket;
+- (NSArray *)getFavoritesFromMap;
 
 @end
 

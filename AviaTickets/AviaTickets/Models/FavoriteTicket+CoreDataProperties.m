@@ -2,7 +2,7 @@
 //  FavoriteTicket+CoreDataProperties.m
 //  
 //
-//  Created by Владислав Лихачев on 25.10.2020.
+//  Created by Владислав Лихачев on 27.10.2020.
 //
 //
 
@@ -14,14 +14,15 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"FavoriteTicket"];
 }
 
+@dynamic airline;
 @dynamic created;
 @dynamic departure;
 @dynamic expires;
-@dynamic returnDate;
-@dynamic airline;
-@dynamic from;
-@dynamic to;
-@dynamic price;
 @dynamic flightNumber;
+@dynamic from;
+@dynamic price;
+@dynamic returnDate;
+@dynamic to;
+@dynamic fromMap;
 
 @end

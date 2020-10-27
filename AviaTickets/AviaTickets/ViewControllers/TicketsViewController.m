@@ -11,6 +11,8 @@
 
 @interface TicketsViewController ()
 @property (nonatomic, strong) NSArray *tickets;
+@property (nonatomic) BOOL fromMap;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @end
 
 @implementation TicketsViewController {
@@ -30,11 +32,12 @@
     return self;
 }
 
-- (instancetype)initWithTickets:(NSArray *)tickets {
+- (instancetype)initWithTickets:(NSArray *)tickets fromMap:(BOOL) fromMap {
     self = [super init];
     if (self)
     {
         _tickets = tickets;
+        _fromMap = fromMap;
         self.title = @"Билеты";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
@@ -50,6 +53,36 @@
         _tickets = [[CoreDataHelper sharedInstance] favorites];
         [self.tableView reloadData];
     }
+}
+-(void)viewDidLoad{
+    if (isFavorites) {
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"из Списка", @"из Карты"]];
+        [_segmentedControl addTarget:self action:@selector(changeSource) forControlEvents:UIControlEventValueChanged];
+        _segmentedControl.tintColor = [UIColor blackColor];
+        self.navigationItem.titleView = _segmentedControl;
+        _segmentedControl.selectedSegmentIndex = 0;
+        [self changeSource];
+    }
+//    if (_placeType == PlaceTypeDeparture) {
+//        self.title = @"Откуда";
+//    } else {
+//        self.title = @"Куда";
+//    }
+}
+
+- (void)changeSource
+{
+    switch (_segmentedControl.selectedSegmentIndex) {
+        case 0:
+            _tickets = [[CoreDataHelper sharedInstance] favorites];
+            break;
+        case 1:
+            _tickets = [[CoreDataHelper sharedInstance] getFavoritesFromMap];
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
@@ -79,11 +112,11 @@
     UIAlertAction *favoriteAction;
     if ([[CoreDataHelper sharedInstance] isFavorite: [_tickets objectAtIndex:indexPath.row]]) {
         favoriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] removeFromFavorite:[_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] removeFromFavorite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
     } else {
         favoriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] addToFavorite:[_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] addToFavorite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
     }
     

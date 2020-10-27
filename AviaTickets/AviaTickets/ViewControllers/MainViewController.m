@@ -83,7 +83,7 @@
 - (void)searchButtonDidTap:(UIButton *)sender {
     [[APIManager sharedInstance] ticketsWithRequest:_searchRequest withCompletion:^(NSArray *tickets) {
         if (tickets.count > 0) {
-            TicketsViewController *ticketsViewController = [[TicketsViewController alloc] initWithTickets:tickets];
+            TicketsViewController *ticketsViewController = [[TicketsViewController alloc] initWithTickets:tickets fromMap:NO];
             [self.navigationController showViewController:ticketsViewController sender:self];
         } else {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];

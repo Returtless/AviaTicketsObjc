@@ -17,8 +17,8 @@
 #define API_URL_CITY_FROM_IP @"https://www.travelpayouts.com/whereami?ip="
 
 #define API_URL_MAP_PRICE_LEFT_PART @"http://map.aviasales.ru/prices.json?origin_iata="
-#define API_URL_MAP_PRICE_RIGHT_PART @"&period=2020-12-01:season&direct=true&one_way=false&no_visa=true&schengen=true&need_visa=true&locale=ru&min_trip_duration_in_days=13&max_trip_duration_in_days=15"
-
+#define API_URL_MAP_PRICE_DATE_PART @"&period="
+#define API_URL_MAP_PRICE_RIGHT_PART @":season&direct=true&one_way=false&no_visa=true&schengen=false&need_visa=false&locale=ru&min_trip_duration_in_days=1&max_trip_duration_in_days=1"
 @implementation APIManager
 
 + (instancetype)sharedInstance {
@@ -71,7 +71,10 @@
     static BOOL isLoading;
     if (isLoading) { return; }
     isLoading = YES;
-    [self load:[NSString stringWithFormat:@"%@%@%@", API_URL_MAP_PRICE_LEFT_PART, origin.code, API_URL_MAP_PRICE_RIGHT_PART] withCompletion:^(id  _Nullable result) {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd"];
+    NSDate *dte = [NSDate date];
+    [self load:[NSString stringWithFormat:@"%@%@%@%@%@", API_URL_MAP_PRICE_LEFT_PART, origin.code,API_URL_MAP_PRICE_DATE_PART, [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:dte]], API_URL_MAP_PRICE_RIGHT_PART] withCompletion:^(id  _Nullable result) {
         NSArray *array = result;
         NSMutableArray *prices = [NSMutableArray new];
         if (array) {

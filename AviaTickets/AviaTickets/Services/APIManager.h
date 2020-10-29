@@ -10,6 +10,9 @@
 #import "DataManager.h"
 #import "City.h"
 #import "MapPrice.h"
+#import "MainViewController.h"
+
+#define AirlineLogo(iata) [NSURL URLWithString:[NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", iata]];
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 - (void)cityForCurrentIP:(void (^)(City *city))completion;
 - (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion;
+- (void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion;
 
 @end
 

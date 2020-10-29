@@ -10,6 +10,8 @@
 #import "LocationService.h"
 #import "APIManager.h"
 #import "PlaceViewController.h"
+#import "TicketsViewController.h"
+#import "CoreDataHelper.h"
 
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -77,6 +79,7 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
     static NSString *identifier = @"MarkerIdentifier";
     MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     if (!annotationView) {
@@ -84,14 +87,57 @@
         annotationView.canShowCallout = YES;
         annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    }
+        
+        }
     annotationView.annotation = annotation;
     return annotationView;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    //Пока здесь просто переход на другой контроллер, но на нем должна быть подробная информация о стоимости билета и перелета
-    PlaceViewController *placeView = [[PlaceViewController alloc] init];
-    [self.navigationController pushViewController:placeView animated:YES];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:view.annotation.coordinate.latitude longitude:view.annotation.coordinate.longitude];
+    City *city = [[DataManager sharedInstance] cityForLocation:location];
+    SearchRequest searchRequest;
+    searchRequest.destination = city.code;
+    searchRequest.origin = _origin.code;
+    searchRequest.departDate = [NSDate date];
+    searchRequest.returnDate = [NSDate date];
+    [[APIManager sharedInstance] ticketsWithRequest:searchRequest withCompletion:^(NSArray *tickets) {
+        if (tickets.count > 0) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"destination.code == %@", city.code];
+            NSArray *filteredArray = [self->_prices filteredArrayUsingPredicate:predicate];
+            id firstFoundObject = nil;
+            firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
+            
+            predicate = [NSPredicate predicateWithFormat:@"price == %d", ((MapPrice *)  firstFoundObject).value];
+            filteredArray = [tickets filteredArrayUsingPredicate:predicate];
+            firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
+            
+            if (firstFoundObject) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Что необходимо сделать с выбранным билетом?" preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *favoriteAction;
+                if ([[CoreDataHelper sharedInstance] isFavorite: (Ticket *)firstFoundObject]) {
+                    favoriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                        [[CoreDataHelper sharedInstance] removeFromFavorite:(Ticket *)firstFoundObject];
+                    }];
+                } else {
+                    favoriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [[CoreDataHelper sharedInstance] addToFavoriteFromMap:(Ticket *)firstFoundObject];
+                    }];
+                }
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+                [alertController addAction:favoriteAction];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            //либо можно показывать контроллер с выбором билетов по данному направлению
+            //            TicketsViewController *ticketsViewController = [[TicketsViewController alloc] initWithTickets:tickets];
+            //            [self.navigationController showViewController:ticketsViewController sender:self];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
 }
 @end

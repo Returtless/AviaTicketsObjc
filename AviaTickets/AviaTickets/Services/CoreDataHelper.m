@@ -70,7 +70,7 @@
 
 - (void)addToFavorite:(Ticket *)ticket {
     FavoriteTicket *favorite = [NSEntityDescription insertNewObjectForEntityForName:@"FavoriteTicket" inManagedObjectContext:_managedObjectContext];
-    favorite.price = ticket.price;
+    favorite.price = ticket.price.intValue;
     favorite.airline = ticket.airline;
     favorite.departure = ticket.departure;
     favorite.expires = ticket.expires;
@@ -85,7 +85,7 @@
 
 - (void)addToFavoriteFromMap:(Ticket *)ticket {
     FavoriteTicket *favorite = [NSEntityDescription insertNewObjectForEntityForName:@"FavoriteTicket" inManagedObjectContext:_managedObjectContext];
-    favorite.price = ticket.price;
+    favorite.price = ticket.price.intValue;
     favorite.airline = ticket.airline;
     favorite.departure = ticket.departure;
     favorite.expires = ticket.expires;

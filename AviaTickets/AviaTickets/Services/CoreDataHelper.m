@@ -58,6 +58,12 @@
     return [[_managedObjectContext executeFetchRequest:request error:nil] firstObject];
 }
 
+- (FavoriteTicket *)favoriteFromPrice:(NSString *)price andFrom:(NSString *)from andTo:(NSString *) to {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FavoriteTicket"];
+    request.predicate = [NSPredicate predicateWithFormat:@"price == %@ AND from == %@ AND to == %@", price, from, to];
+    return [[_managedObjectContext executeFetchRequest:request error:nil] firstObject];
+}
+
 - (BOOL)isFavorite:(Ticket *)ticket {
     return [self favoriteFromTicket:ticket] != nil;
 }

@@ -23,6 +23,7 @@
 		526FCE392545FC0900373912 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526FCE382545FC0900373912 /* TicketsViewController.m */; };
 		526FCE3D2546005800373912 /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 526FCE3C2546005800373912 /* TicketTableViewCell.m */; };
 		52804F1F2540A7B100E24032 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52804F1E2540A7B100E24032 /* LocationService.m */; };
+		52D3392525532149004C44D7 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D3392425532149004C44D7 /* NotificationCenter.m */; };
 		52FEB0842534CB3000BEA7E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0832534CB3000BEA7E0 /* AppDelegate.m */; };
 		52FEB0872534CB3000BEA7E0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0862534CB3000BEA7E0 /* SceneDelegate.m */; };
 		52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEB0892534CB3000BEA7E0 /* MainViewController.m */; };
@@ -67,6 +68,9 @@
 		526FCE3C2546005800373912 /* TicketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewCell.m; sourceTree = "<group>"; };
 		52804F1D2540A7B100E24032 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		52804F1E2540A7B100E24032 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		52D3392325532149004C44D7 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		52D3392425532149004C44D7 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+		52D33927255321EF004C44D7 /* AviaTickets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AviaTickets.entitlements; sourceTree = "<group>"; };
 		52FEB07F2534CB3000BEA7E0 /* AviaTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FEB0822534CB3000BEA7E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52FEB0832534CB3000BEA7E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		52FEB0812534CB3000BEA7E0 /* AviaTickets */ = {
 			isa = PBXGroup;
 			children = (
+				52D33927255321EF004C44D7 /* AviaTickets.entitlements */,
 				52FEB0A82534E2AE00BEA7E0 /* Services */,
 				52FEB09B2534DC8900BEA7E0 /* Models */,
 				52FEB0AC2534E77C00BEA7E0 /* ViewControllers */,
@@ -176,6 +181,8 @@
 				526FCE062540AE2F00373912 /* APIManager.m */,
 				5260172A2546162B0001A2F9 /* CoreDataHelper.h */,
 				5260172B2546162B0001A2F9 /* CoreDataHelper.m */,
+				52D3392325532149004C44D7 /* NotificationCenter.h */,
+				52D3392425532149004C44D7 /* NotificationCenter.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -337,6 +344,7 @@
 			files = (
 				52804F1F2540A7B100E24032 /* LocationService.m in Sources */,
 				52062DA72538F071004EB865 /* CityTableViewCell.m in Sources */,
+				52D3392525532149004C44D7 /* NotificationCenter.m in Sources */,
 				52FEB0AF2534E7C100BEA7E0 /* PlaceViewController.m in Sources */,
 				526FCE392545FC0900373912 /* TicketsViewController.m in Sources */,
 				52FEB08A2534CB3000BEA7E0 /* MainViewController.m in Sources */,
@@ -492,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AviaTickets/AviaTickets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9AML55U6D;
 				INFOPLIST_FILE = AviaTickets/Info.plist;
@@ -514,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AviaTickets/AviaTickets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9AML55U6D;
 				INFOPLIST_FILE = AviaTickets/Info.plist;

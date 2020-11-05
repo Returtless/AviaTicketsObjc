@@ -9,6 +9,7 @@
 #import "SceneDelegate.h"
 #import "MainViewController.h"
 #import "TabBarController.h"
+#import "NotificationCenter.h"
 
 @interface SceneDelegate ()
 
@@ -41,6 +42,7 @@
     self.window = window;
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
+    [[NotificationCenter sharedInstance] registerService];
 }
 
 

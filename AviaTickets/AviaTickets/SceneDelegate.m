@@ -22,23 +22,23 @@
     
     UIWindowScene *windowScene = (UIWindowScene *) scene;
     TabBarController *tabBarController = [[TabBarController alloc] init];
-
-        self.window.rootViewController = tabBarController;
-        [self.window makeKeyAndVisible];
-
+    
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:windowScene.coordinateSpace.bounds];
     window.windowScene = windowScene;
     _navigationController = [[UINavigationController alloc] init];
     [window addSubview:[self.navigationController view]];
-   if(self.mainViewController == nil)
+    if(self.mainViewController == nil)
     {
         MainViewController *firstView = [[MainViewController alloc] init];
         self.mainViewController = firstView;
     }
     [self.navigationController pushViewController:self.mainViewController animated:YES];
-
+    
     window.backgroundColor = [UIColor whiteColor];
-
+    
     self.window = window;
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];

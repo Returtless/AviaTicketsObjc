@@ -8,6 +8,8 @@
 
 #import "NotificationCenter.h"
 #import <UserNotifications/UserNotifications.h>
+#import "TicketsViewController.h"
+#import "CoreDataHelper.h"
 
 @interface NotificationCenter () <UNUserNotificationCenterDelegate>
 @end
@@ -68,13 +70,36 @@
         [center addNotificationRequest:request withCompletionHandler:nil];
 }
 
-Notification NotificationMake(NSString* _Nullable title, NSString* _Nonnull body, NSDate* _Nonnull date, NSURL * _Nullable  imageURL) {
+Notification NotificationMake(NSString* _Nullable title, NSString* _Nonnull body, NSDate* _Nonnull date, NSURL * _Nullable  imageURL, NSNumber * _Nonnull flightNumber) {
     Notification notification;
     notification.title = title;
     notification.body = body;
     notification.date = date;
     notification.imageURL = imageURL;
+    notification.flightNumber = flightNumber;
     return notification;
+}
+
+//Called when a notification is delivered to a foreground app.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    NSLog(@"User Info : %@",notification.request.content.userInfo);
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+}
+
+//Called to let your app know which action was selected by the user for a given notification.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
+    
+    UIWindowScene *scene = (UIWindowScene *) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject;
+    UINavigationController *nav = (UINavigationController *) scene.windows.firstObject.rootViewController;
+    
+    NSArray *components = [response.notification.request.content.body componentsSeparatedByString:@" "];
+
+    NSArray *arr = [[NSArray alloc] initWithObjects:[[CoreDataHelper sharedInstance] favoriteFromPrice: components[4] andFrom:components[0] andTo:components[2]], nil];
+    
+    TicketsViewController *favoriteViewController = [[TicketsViewController alloc] initWithNotificationTickets:arr];
+    
+    [nav showViewController:favoriteViewController sender:self];
+    completionHandler();
 }
 
 @end

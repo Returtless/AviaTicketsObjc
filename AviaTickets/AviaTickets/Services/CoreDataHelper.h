@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addToFavoriteFromMap:(Ticket *)ticket;
 - (void)removeFromFavorite:(Ticket *)ticket;
 - (NSArray *)getFavoritesFromMap;
-
+- (FavoriteTicket *)favoriteFromPrice:(NSString *)price andFrom:(NSString *)from andTo:(NSString *) to;
 @end
 
 NS_ASSUME_NONNULL_END

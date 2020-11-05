@@ -34,10 +34,6 @@
         self.title = @"Избранное";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
-        
-
-        
-        
     }
     return self;
 }
@@ -48,6 +44,19 @@
     {
         _tickets = tickets;
         _fromMap = fromMap;
+        self.title = @"Билеты";
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
+    }
+    return self;
+}
+
+- (instancetype)initWithNotificationTickets:(NSArray *)tickets {
+    self = [super init];
+    if (self)
+    {
+        _tickets = tickets;
+        _fromMap = NO;
         self.title = @"Билеты";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
@@ -176,7 +185,7 @@
             imageURL = [NSURL fileURLWithPath:path];
         }
         
-        Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+        Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL, [NSNumber numberWithInt:notificationCell.favoriteTicket.flightNumber] );
         [[NotificationCenter sharedInstance] sendNotification:notification];
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];

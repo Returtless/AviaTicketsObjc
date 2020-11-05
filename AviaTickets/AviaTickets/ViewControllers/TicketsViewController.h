@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTickets:(NSArray *)tickets fromMap:(BOOL) fromMap;
 - (instancetype)initFavoriteTicketsController;
+- (instancetype)initWithNotificationTickets:(NSArray *)tickets;
 
 @end
 

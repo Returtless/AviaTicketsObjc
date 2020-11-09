@@ -39,3 +39,22 @@
 
 
 @end
+
+// NSString+Localize.h
+
+@interface NSString (Localize)
+
+@property (nonatomic, strong, readonly) NSString *localize;
+
+@end
+
+
+// NSString+Localize.m
+
+@implementation NSString (Localize)
+
+- (NSString *)localize {
+    return NSLocalizedString(self, "");
+}
+
+@end

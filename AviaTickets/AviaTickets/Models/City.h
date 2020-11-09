@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
+-(instancetype)initWithName:(NSString *) name AndAbbr:(NSString *)abbr AndCountry:(NSString *) country;
 @end
 
 NS_ASSUME_NONNULL_END
